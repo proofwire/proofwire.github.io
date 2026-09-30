@@ -3,12 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Proofwire</title>
+<title>Vouchwell</title>
 <!-- GitHub serves a hostname's root only from a repository named exactly
-     <org>.github.io. The site itself lives in proofwire/proofwire, so this page
-     does nothing but send the bare hostname there. -->
-<meta http-equiv="refresh" content="0; url=/proofwire/">
-<link rel="canonical" href="https://proofwire.github.io/proofwire/">
+     <org>.github.io. The site itself lives in the <org>/<org> repository, so
+     this page does nothing but send the bare hostname there. The path comes
+     from the hostname, so it keeps working when the organisation is renamed
+     (proofwire.github.io -> /proofwire/, vouchwell.github.io -> /vouchwell/). -->
+<script>
+  (function () {
+    var host = location.hostname;
+    var org = /\.github\.io$/.test(host) ? host.split('.')[0] : 'vouchwell';
+    location.replace('/' + org + '/');
+  })();
+</script>
 <meta name="color-scheme" content="light dark">
 <style>
   :root { --ground: #e9ebe5; --ink: #12170f; --verify: #0b6e4f; }
@@ -18,6 +25,7 @@
 </style>
 </head>
 <body>
-<p>Taking you to <a href="/proofwire/">Proofwire</a>&hellip;</p>
+<!-- Without JavaScript: the repository, whose address GitHub keeps redirecting after the rename. -->
+<p>Taking you to <a href="https://github.com/proofwire/proofwire">Vouchwell</a>&hellip;</p>
 </body>
 </html>
